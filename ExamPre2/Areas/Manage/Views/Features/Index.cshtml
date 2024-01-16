@@ -1,0 +1,42 @@
+﻿@using ExamPre2.Core.Models;
+@model List<Features>
+
+<div>
+    <a asp-action="create" asp-controller="features" class="btn btn-primary">Create</a>
+</div>
+
+
+<div class="container-fluid">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Icon</th>
+                <th scope="col">Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>                   
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.IconUrl</td>
+                    
+                    
+
+                </tr>
+                <tr>
+                    <td>
+                        <a asp-controller="features" asp-action="update" asp-route-id="@item.Id" class="btn btn-primary">Update</a>
+                        <a asp-controller="features" asp-action="delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+
+            }    
+            
+        </tbody>
+    </table>
+</div>
